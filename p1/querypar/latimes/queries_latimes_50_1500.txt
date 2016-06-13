@@ -1,5 +1,5 @@
 <parameters>
-            <index>/home/peden/Dropbox/UNI/master/IR/IR2016/indexpar/IR2016-index-latimes</index>
+            <index>../indexpar/IR2016-index-latimes</index>
             <runID>2016</runID>
             <trecFormat>true</trecFormat>
             <count>50</count>

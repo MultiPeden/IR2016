@@ -15,15 +15,17 @@ def createRes():
         command = "IndriRunQuery querypar/" + dataset +"/" + filename +  " > results/results_" +dataset+ "_" + size + "_" + mu
         print command
         os.system(command)
+        print "after command"
 
 
 # Do the reranking
 def rerank():
+    print "reranking"
     for filename in os.listdir("./results"):
         filenameSplit = filename.split("_")
         dataset = filenameSplit[1]
         outname = filenameSplit[2] + "/" + filenameSplit[1] + "/"+filenameSplit[1] + "_" + filenameSplit[2] + "_" + filenameSplit[3].split(".")[0]  
-        command ="./rerank/rerank ../indexpar/IR2016-index-"+ dataset+ " results/" + filename + " " + outname
+        command ="./rerank/rerank ../indexpar/IR2016-index-"+ dataset+ " ./results/" + filename  + " ./reranked/"+ outname
         print command
         os.system(command)
 
@@ -51,7 +53,7 @@ def eval():
                 fileN.sort()
                 fileN = reversed(fileN)
                 for filename in fileN:
-                    rerankedfile = "reranked/" + d + "/" + sd + "/" + filename
+                    rerankedfile = "./reranked/" + d + "/" + sd + "/" + filename
                     command = "python2.7 calcP1.py " + rerankedfile
                     p1 = subprocess.check_output(command, shell=True)
                     command = "trec_eval qrels.txt " + rerankedfile

@@ -24,7 +24,7 @@ for d in datasets:
             filename = "querypar/" + d + "/queries_" + d + "_" + str(numd)+ "_" + str(mu) + ".txt"
             out = open(filename, 'w')
             out.write("""<parameters>
-            <index>/home/peden/Dropbox/UNI/master/IR/IR2016/indexpar/IR2016-index-""" + d + """</index>
+            <index>../indexpar/IR2016-index-""" + d + """</index>
             <runID>2016</runID>
             <trecFormat>true</trecFormat>
             <count>""" + str(numd) + """</count>
