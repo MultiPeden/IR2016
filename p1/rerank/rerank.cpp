@@ -57,7 +57,7 @@ string get_document_id(indri::collection::Repository& r, const char* av) {
     return int2str(documentIDs[0]);
 }
 
-
+// computes the number of docs termString appears in
 int termInDocs(indri::collection::Repository& r, const std::string& termString) {
     std::string stem = r.processTerm(termString);
     indri::server::LocalQueryServer local(r);
@@ -162,7 +162,7 @@ map<int,  vector<QueryDoc>  >  loadRes (indri::collection::Repository& r, char* 
     return queries;
 }
 
-
+// loads the queries from the file ./queriesReRank.txt
 map < string , vector<string> >  loadQueries() {
     map < string , vector<string> >  queriesMap;
     string line;
